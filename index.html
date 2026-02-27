@@ -2,13 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Resilience Brazilian Jiu Jitsu — São Sebastião do Paraíso</title>
-  <meta name="description" content="Treine Jiu-Jitsu na Resilience BJJ em São Sebastião do Paraíso. Aulas para Kids, Adulto e No-Gi. Agende sua aula experimental." />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <title>Resilience BJJ — Aula Experimental Gratuita</title>
+  <meta name="description" content="Treine Jiu-Jitsu na Resilience BJJ em São Sebastião do Paraíso. Kids, Adulto e No-Gi. Aula experimental gratuita. Agende pelo WhatsApp." />
   <meta name="theme-color" content="#0b0b0c" />
 
+  <!-- Open Graph -->
   <meta property="og:title" content="Resilience Brazilian Jiu Jitsu" />
-  <meta property="og:description" content="Treino de verdade, evolução constante e um time que te puxa pra cima. Agende sua aula experimental." />
+  <meta property="og:description" content="Kids • Adulto • No-Gi • Aula experimental gratuita. Agende no WhatsApp." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="logo.jpeg" />
 
@@ -21,10 +22,13 @@
       --red:#ff1b2d;
       --line:rgba(255,255,255,.10);
       --shadow: 0 18px 50px rgba(0,0,0,.55);
-      --radius: 18px;
-      --radius2: 28px;
+      --r16: 16px;
+      --r20: 20px;
+      --r24: 24px;
       --max: 1100px;
       --ring: 0 0 0 3px rgba(255,27,45,.25);
+      --safe-bottom: env(safe-area-inset-bottom, 0px);
+      --safe-top: env(safe-area-inset-top, 0px);
     }
     *{box-sizing:border-box}
     html,body{height:100%}
@@ -33,56 +37,60 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
-        radial-gradient(1000px 600px at 70% 10%, rgba(255,27,45,.22), transparent 60%),
-        radial-gradient(700px 500px at 15% 20%, rgba(255,255,255,.06), transparent 60%),
+        radial-gradient(900px 550px at 70% 10%, rgba(255,27,45,.22), transparent 60%),
+        radial-gradient(700px 500px at 12% 18%, rgba(255,255,255,.06), transparent 60%),
         linear-gradient(180deg, #050506 0%, #0b0b0c 30%, #050506 100%);
       overflow-x:hidden;
     }
     a{color:inherit; text-decoration:none}
-    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto}
+    .container{width:min(var(--max), calc(100% - 28px)); margin:0 auto}
 
-    .pill{
-      display:inline-flex; align-items:center; gap:10px;
-      padding:10px 14px; border:1px solid var(--line);
-      border-radius:999px; color:var(--muted); background:rgba(255,255,255,.03);
-      backdrop-filter: blur(10px);
-    }
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--red); box-shadow:0 0 0 4px rgba(255,27,45,.15)}
-
+    /* Header (mobile-first, no cut) */
     header{
       position:sticky; top:0; z-index:50;
-      background:rgba(7,7,8,.65);
+      background:rgba(7,7,8,.70);
       border-bottom:1px solid rgba(255,255,255,.06);
       backdrop-filter: blur(12px);
+      padding-top: var(--safe-top);
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between;
-      padding:14px 0; gap:12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 0;
+      flex-wrap:wrap;
     }
-    .brand{display:flex; align-items:center; gap:12px; min-width: 220px;}
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      min-width:0;
+      flex: 1 1 260px; /* deixa quebrar elegante no mobile */
+    }
     .brand img{
-      width:44px; height:44px; border-radius:12px; object-fit:cover;
+      width:40px; height:40px; border-radius:12px; object-fit:cover;
       border:1px solid rgba(255,255,255,.12);
       background:#111;
+      flex:0 0 auto;
     }
-    .brand strong{display:block; line-height:1.05}
-    .brand small{display:block; color:var(--muted); margin-top:2px}
-
-    .navlinks{display:flex; gap:18px; align-items:center; color:var(--muted)}
-    .navlinks a{font-size:14px; padding:8px 10px; border-radius:10px}
-    .navlinks a:hover{background:rgba(255,255,255,.05); color:var(--text)}
-
-    .navcta{display:flex; gap:10px; align-items:center}
-
+    .brand .t1{font-weight:950; letter-spacing:-.02em; line-height:1.1}
+    .brand .t2{color:var(--muted); font-size:12px; margin-top:2px}
+    .navcta{
+      display:flex; gap:10px; align-items:center;
+      flex: 1 1 220px;
+      justify-content:flex-end;
+      flex-wrap:wrap;
+    }
     .btn{
       display:inline-flex; align-items:center; justify-content:center; gap:10px;
-      padding:12px 14px; border-radius:14px; font-weight:800; font-size:14px;
+      padding:12px 14px; border-radius:14px;
+      font-weight:900; font-size:14px;
       border:1px solid rgba(255,255,255,.12);
       background:rgba(255,255,255,.04);
       color:var(--text);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
       cursor:pointer;
       user-select:none;
+      white-space:nowrap;
     }
     .btn:hover{transform: translateY(-1px); background:rgba(255,255,255,.07); border-color:rgba(255,255,255,.18)}
     .btn:focus{outline:none; box-shadow: var(--ring)}
@@ -91,212 +99,145 @@
       border-color: rgba(255,27,45,.55);
       color:#0b0b0c;
     }
-    .btn.primary:hover{transform: translateY(-2px)}
-    .btn.ghost{border-color: rgba(255,255,255,.10); background: transparent;}
+    .btn.ghost{background:transparent; border-color: rgba(255,255,255,.10)}
+    .btn.small{padding:10px 12px; font-size:13px; border-radius:13px}
 
-    /* HERO */
-    .hero{padding:54px 0 26px; position:relative}
-    .grid{
+    /* Mobile tweaks */
+    @media (max-width: 520px){
+      .container{width: calc(100% - 22px);}
+      .nav{justify-content:center}
+      .brand{flex: 1 1 100%; justify-content:center; text-align:center}
+      .navcta{flex: 1 1 100%; justify-content:center}
+      .btn{flex: 1 1 160px}
+      .btn.primary{flex: 1 1 220px}
+    }
+
+    /* Sections */
+    main{padding-bottom: calc(86px + var(--safe-bottom));} /* espaço para barra fixa */
+    section{padding:22px 0}
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 14px; border:1px solid var(--line);
+      border-radius:999px; color:var(--muted); background:rgba(255,255,255,.03);
+      backdrop-filter: blur(10px);
+      font-weight:800;
+      font-size:13px;
+    }
+    .dot{width:8px;height:8px;border-radius:50%;background:var(--red); box-shadow:0 0 0 4px rgba(255,27,45,.15)}
+    .hero{
+      padding:22px 0 6px;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:26px;
-      align-items:stretch;
+      gap:14px;
     }
     .hero h1{
-      font-size: clamp(32px, 4vw, 52px);
-      letter-spacing:-0.03em;
-      line-height:1.02;
-      margin:16px 0 10px;
+      margin:12px 0 8px;
+      font-size: clamp(30px, 6vw, 46px);
+      letter-spacing:-.03em;
+      line-height:1.05;
     }
     .hero p{
       margin:0;
       color:var(--muted);
-      font-size: clamp(15px, 1.2vw, 18px);
-      line-height:1.6;
-      max-width: 62ch;
+      line-height:1.65;
+      font-size: 15.5px;
+      max-width: 70ch;
     }
-    .hero .actions{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
-    .hero .stats{
+    .heroActions{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px}
+    .cards{
       display:grid;
       grid-template-columns: repeat(3, 1fr);
       gap:12px;
-      margin-top:18px;
     }
-    .stat{
-      padding:14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
+    @media (max-width: 900px){
+      .cards{grid-template-columns:1fr}
     }
-    .stat strong{display:block; font-size:18px}
-    .stat span{color:var(--muted); font-size:13px}
-
     .card{
       border:1px solid rgba(255,255,255,.10);
       background: linear-gradient(180deg, rgba(255,255,255,.04), rgba(255,255,255,.02));
-      border-radius: var(--radius2);
+      border-radius: var(--r24);
       box-shadow: var(--shadow);
       overflow:hidden;
-      position:relative;
     }
-    .card .inner{padding:18px}
-    .badge{
+    .pad{padding:16px}
+    .kicker{
       display:inline-flex; align-items:center; gap:8px;
-      padding:10px 12px;
+      padding:9px 12px;
       border-radius:14px;
       background:rgba(255,27,45,.12);
       border:1px solid rgba(255,27,45,.30);
       color:#ffd5d9;
-      font-weight:800;
+      font-weight:950;
       font-size:13px;
     }
-    .coach{
-      display:flex; gap:14px; align-items:center; margin-top:14px;
-      padding:14px; border-radius:18px;
-      border:1px solid rgba(255,255,255,.08);
-      background:rgba(0,0,0,.25);
-    }
+    .miniLine{height:1px; background:rgba(255,255,255,.08); margin:14px 0}
+    .row{display:flex; gap:12px; align-items:center}
     .avatar{
-      width:54px;height:54px;border-radius:16px;
+      width:50px;height:50px;border-radius:16px;
       background:
         radial-gradient(circle at 35% 30%, rgba(255,27,45,.85), transparent 55%),
         radial-gradient(circle at 70% 60%, rgba(255,255,255,.12), transparent 55%),
         linear-gradient(135deg, #111, #060607);
       border:1px solid rgba(255,255,255,.12);
       display:flex; align-items:center; justify-content:center;
-      font-weight:900;
-      letter-spacing:-0.03em;
+      font-weight:950;
     }
-    .coach strong{display:block}
-    .coach small{display:block; color:var(--muted); margin-top:4px}
-    .mini-actions{display:flex; gap:10px; margin-top:12px; flex-wrap:wrap}
-    .divider{height:1px;background:rgba(255,255,255,.08); margin:16px 0}
+    .muted{color:var(--muted)}
+    .h2{
+      margin:0 0 6px;
+      font-size: 22px;
+      letter-spacing:-.02em;
+    }
+    .sub{margin:0; color:var(--muted); line-height:1.6}
 
-    /* SECTIONS */
-    section{padding:34px 0}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:18px;
-      margin-bottom:14px;
-    }
-    .section-title h2{
-      margin:0;
-      font-size: clamp(22px, 2.2vw, 30px);
-      letter-spacing:-0.02em;
-    }
-    .section-title p{margin:0; color:var(--muted); max-width: 70ch; line-height:1.6}
-
-    .cards3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .feature{
-      padding:16px;
-      border-radius: var(--radius);
+    /* Feature tiles */
+    .tile{
       border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.03);
+      border-radius: var(--r20);
+      padding:14px;
     }
-    .feature .icon{
+    .tile .icon{
       width:42px;height:42px;border-radius:14px;
       display:flex; align-items:center; justify-content:center;
       border:1px solid rgba(255,27,45,.35);
       background:rgba(255,27,45,.10);
       margin-bottom:10px;
+      font-size:18px;
     }
-    .feature h3{margin:0 0 6px; font-size:16px}
-    .feature p{margin:0; color:var(--muted); line-height:1.6; font-size:14px}
+    .tile h3{margin:0 0 6px; font-size:16px}
+    .tile p{margin:0; color:var(--muted); line-height:1.6; font-size:14px}
 
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:stretch;
-    }
-
-    .list{margin:0; padding:0; list-style:none; display:grid; gap:10px;}
-    .li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px; border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-    }
-    .check{
-      width:22px;height:22px;border-radius:8px;
-      background:rgba(255,27,45,.14);
-      border:1px solid rgba(255,27,45,.35);
-      display:flex; align-items:center; justify-content:center;
-      flex:0 0 auto;
-      margin-top:1px;
-      font-weight:900;
-    }
-    .li strong{display:block}
-    .li span{display:block; color:var(--muted); font-size:14px; line-height:1.5; margin-top:2px}
-
-    .testimonials{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
-    .quote{
-      padding:16px;
-      border-radius: var(--radius);
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-    }
-    .quote p{margin:0; color:var(--text); line-height:1.6}
-    .quote small{display:block; margin-top:10px; color:var(--muted)}
-
-    .faq{display:grid; gap:10px;}
-    details{
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.10);
-      background:rgba(255,255,255,.03);
-      padding:12px 14px;
-    }
-    summary{cursor:pointer; font-weight:900; list-style:none;}
-    summary::-webkit-details-marker{display:none}
-    details p{margin:10px 0 0; color:var(--muted); line-height:1.6}
-
-    .cta{
-      padding:28px;
-      border-radius: 26px;
-      border:1px solid rgba(255,27,45,.30);
-      background:
-        radial-gradient(700px 300px at 20% 20%, rgba(255,27,45,.28), transparent 60%),
-        radial-gradient(600px 300px at 80% 80%, rgba(255,255,255,.08), transparent 60%),
-        rgba(255,255,255,.03);
-      box-shadow: var(--shadow);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:18px;
-      flex-wrap:wrap;
-    }
-    .cta h2{margin:0; font-size: clamp(22px, 2.2vw, 30px)}
-    .cta p{margin:6px 0 0; color:var(--muted); max-width: 70ch; line-height:1.6}
-
-    /* HORÁRIOS */
+    /* Schedule (mobile-native accordion) */
     .schedule{
       display:grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap:12px;
+      gap:10px;
     }
-    .day{
-      border-radius: var(--radius);
+    details.day{
+      border-radius: var(--r20);
       border:1px solid rgba(255,255,255,.10);
       background:rgba(255,255,255,.03);
       overflow:hidden;
     }
-    .day .head{
-      padding:12px 12px 10px;
-      border-bottom:1px solid rgba(255,255,255,.08);
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      background:rgba(0,0,0,.22);
+    details.day[open]{
+      background:
+        radial-gradient(700px 250px at 20% 10%, rgba(255,27,45,.16), transparent 60%),
+        rgba(255,255,255,.03);
+      border-color: rgba(255,27,45,.25);
     }
-    .day .head strong{font-size:14px}
+    summary.daySum{
+      list-style:none;
+      cursor:pointer;
+      padding:14px 14px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      font-weight:950;
+    }
+    summary.daySum::-webkit-details-marker{display:none}
     .tag{
       font-size:11px;
-      font-weight:900;
+      font-weight:950;
       padding:6px 10px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.12);
@@ -304,61 +245,129 @@
       background:rgba(255,255,255,.03);
       white-space:nowrap;
     }
-    .slots{padding:10px 12px 12px; display:grid; gap:10px;}
+    .slots{
+      padding:0 14px 14px;
+      display:grid;
+      gap:10px;
+    }
     .slot{
-      border-radius:14px;
+      border-radius:16px;
       border:1px solid rgba(255,255,255,.10);
       background:rgba(0,0,0,.18);
-      padding:10px;
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
     }
     .slot .left{display:grid; gap:2px}
     .time{font-weight:950; letter-spacing:-0.01em}
-    .type{font-size:12px; color:var(--muted); font-weight:800}
+    .type{font-size:12px; color:var(--muted); font-weight:850}
     .type b{color:#ffd5d9}
-    .slot .mini{
+    .mini{
       padding:10px 12px;
       border-radius:14px;
       font-size:12px;
       font-weight:950;
       border:1px solid rgba(255,27,45,.30);
       background:rgba(255,27,45,.10);
+      white-space:nowrap;
     }
-    .slot .mini:hover{background:rgba(255,27,45,.16)}
-    .legend{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
-    .legend .tag{border-color: rgba(255,27,45,.22)}
-    .legend .tag.kids{background:rgba(255,255,255,.03)}
-    .legend .tag.adulto{background:rgba(255,27,45,.10); color:#ffd5d9}
-    .legend .tag.nogi{background:rgba(255,255,255,.03)}
-    .muted{color:var(--muted)}
+    .mini:hover{background:rgba(255,27,45,.16)}
+    .legend{display:flex; gap:8px; flex-wrap:wrap; margin-top:10px}
 
-    footer{
-      padding:28px 0 34px;
-      border-top:1px solid rgba(255,255,255,.06);
-      color:var(--muted);
-      font-size:14px;
+    /* FAQ */
+    .faq{display:grid; gap:10px}
+    details.faqItem{
+      border-radius: var(--r20);
+      border:1px solid rgba(255,255,255,.10);
+      background:rgba(255,255,255,.03);
+      padding:12px 14px;
     }
-    .foot{
-      display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+    summary.faqSum{
+      cursor:pointer;
+      font-weight:950;
+      list-style:none;
+    }
+    summary.faqSum::-webkit-details-marker{display:none}
+    details.faqItem p{margin:10px 0 0; color:var(--muted); line-height:1.6}
+
+    /* Map card */
+    .mapCard iframe{width:100%; height:320px; border:0; display:block}
+
+    /* Floating WhatsApp */
+    .fab{
+      position:fixed;
+      right:14px;
+      bottom: calc(86px + 14px + var(--safe-bottom));
+      z-index:80;
+      display:flex;
+      gap:10px;
       align-items:center;
     }
-    .links{display:flex; gap:12px; flex-wrap:wrap}
-    .links a{padding:8px 10px; border-radius:10px}
-    .links a:hover{background:rgba(255,255,255,.05); color:var(--text)}
-
-    @media (max-width: 980px){
-      .grid{grid-template-columns:1fr}
-      .cards3{grid-template-columns:1fr}
-      .split{grid-template-columns:1fr}
-      .testimonials{grid-template-columns:1fr}
-      .navlinks{display:none}
-      .hero .stats{grid-template-columns:1fr}
-      .schedule{grid-template-columns:1fr}
+    .fab a{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      border:1px solid rgba(255,27,45,.40);
+      background:linear-gradient(135deg, rgba(255,27,45,.95), rgba(255,80,90,.95));
+      box-shadow: 0 14px 35px rgba(0,0,0,.5);
+      font-weight:950;
+      color:#0b0b0c;
     }
+    .fab a:focus{outline:none; box-shadow: var(--ring)}
+
+    /* Bottom sticky bar (mobile-native) */
+    .bottomBar{
+      position:fixed;
+      left:0; right:0;
+      bottom:0;
+      z-index:90;
+      padding: 10px 12px calc(10px + var(--safe-bottom));
+      background:rgba(7,7,8,.75);
+      border-top:1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+    }
+    .bottomBar .wrap{
+      width:min(var(--max), calc(100% - 16px));
+      margin:0 auto;
+      display:flex;
+      gap:10px;
+    }
+    .bottomBar .wrap a{
+      flex:1 1 0;
+      text-align:center;
+      padding:12px 12px;
+      border-radius:16px;
+      font-weight:950;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+    }
+    .bottomBar .wrap a.primary{
+      background:linear-gradient(135deg, var(--red) 0%, #ff3c4b 55%, #ff6a75 100%);
+      border-color: rgba(255,27,45,.55);
+      color:#0b0b0c;
+    }
+
+    footer{
+      padding:18px 0 8px;
+      color:var(--muted);
+      font-size:13px;
+      border-top:1px solid rgba(255,255,255,.06);
+      margin-top: 16px;
+    }
+    .footRow{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:center}
+    .links{display:flex; gap:10px; flex-wrap:wrap}
+    .links a{padding:8px 10px; border-radius:12px}
+    .links a:hover{background:rgba(255,255,255,.05); color:var(--text)}
   </style>
 </head>
 
 <body>
+  <!-- CONFIG -->
   <script>
     const RESILIENCE = {
       gymName: "Resilience Brazilian Jiu Jitsu",
@@ -371,27 +380,27 @@
       address: "R. Custódio Nascimento, 199 - Braz, São Sebastião do Paraíso - MG",
       mapsQuery: "Resilience Brazilian Jiu Jitsu",
       schedule: [
-        { day: "Segunda", slots: [
+        { day: "Segunda-feira", slots: [
           { time:"06:00", type:"Adulto" },
           { time:"18:30", type:"Adulto" },
           { time:"19:30", type:"Adulto" }
         ]},
-        { day: "Terça", slots: [
+        { day: "Terça-feira", slots: [
           { time:"08:30", type:"Kids" },
           { time:"18:30", type:"Kids" },
           { time:"19:30", type:"Adulto" }
         ]},
-        { day: "Quarta", slots: [
+        { day: "Quarta-feira", slots: [
           { time:"06:00", type:"Adulto" },
           { time:"18:30", type:"Adulto" },
           { time:"19:30", type:"Adulto" }
         ]},
-        { day: "Quinta", slots: [
+        { day: "Quinta-feira", slots: [
           { time:"08:30", type:"Kids" },
           { time:"18:30", type:"Kids" },
           { time:"19:30", type:"Adulto" }
         ]},
-        { day: "Sexta", slots: [
+        { day: "Sexta-feira", slots: [
           { time:"06:00", type:"Adulto No-Gi" },
           { time:"18:30", type:"Adulto No-Gi" }
         ]}
@@ -405,23 +414,14 @@
         <a class="brand" href="#top" aria-label="Resilience BJJ">
           <img src="logo.jpeg" alt="Logo Resilience BJJ" />
           <div>
-            <strong>Resilience BJJ</strong>
-            <small>Brazilian Jiu Jitsu • SSP/MG</small>
+            <div class="t1">Resilience BJJ</div>
+            <div class="t2">Kids • Adulto • No-Gi • SSP/MG</div>
           </div>
         </a>
 
-        <nav class="navlinks" aria-label="Navegação">
-          <a href="#beneficios">Benefícios</a>
-          <a href="#como-funciona">Como funciona</a>
-          <a href="#horarios">Horários</a>
-          <a href="#depoimentos">Depoimentos</a>
-          <a href="#faq">FAQ</a>
-          <a href="#local">Local</a>
-        </nav>
-
         <div class="navcta">
-          <a class="btn ghost" id="igGymTop" href="#" target="_blank" rel="noreferrer">Instagram</a>
-          <a class="btn primary" id="waTop" href="#" target="_blank" rel="noreferrer">Agendar aula</a>
+          <a class="btn ghost small" id="igGymTop" href="#" target="_blank" rel="noreferrer">Instagram</a>
+          <a class="btn primary" id="waTop" href="#" target="_blank" rel="noreferrer">Aula grátis • Agendar</a>
         </div>
       </div>
     </div>
@@ -429,324 +429,227 @@
 
   <main id="top">
     <div class="container">
+      <!-- HERO -->
       <section class="hero">
-        <div class="grid">
-          <div>
-            <span class="pill"><span class="dot"></span> <span>Kids • Adulto • No-Gi • São Sebastião do Paraíso</span></span>
+        <span class="pill"><span class="dot"></span><span>Aula experimental <b style="color:#ffd5d9">gratuita</b> • Vagas limitadas</span></span>
 
-            <h1>
-              Jiu-Jitsu com método, energia e time de verdade.
-              <span style="color: #ffd5d9;">Resilience</span>
-            </h1>
+        <h1>Treine Jiu-Jitsu com método, energia e um time que te puxa pra cima.</h1>
+        <p>
+          Quer sair do “vou começar” e finalmente entrar no tatame?
+          A Resilience é pra quem busca <b>evolução</b>, <b>disciplina</b> e treino de verdade — do iniciante ao avançado.
+        </p>
 
-            <p>
-              Se você quer <strong>aprender do zero</strong>, melhorar o condicionamento e fazer parte de uma equipe que
-              te puxa pra cima — a Resilience é o seu lugar.
-              Treinos para <strong>Kids</strong>, <strong>Adulto</strong> e <strong>No-Gi</strong>, com ambiente respeitoso e intenso.
-            </p>
-
-            <div class="actions">
-              <a class="btn primary" id="waHero" href="#" target="_blank" rel="noreferrer">Agendar aula experimental (WhatsApp)</a>
-              <a class="btn" href="#horarios">Ver horários</a>
-              <a class="btn ghost" id="mapsHero" href="#" target="_blank" rel="noreferrer">Como chegar</a>
-            </div>
-
-            <div class="hero stats" aria-label="Destaques">
-              <div class="stat">
-                <strong>Treino real</strong>
-                <span>técnica + estratégia + condicionamento</span>
-              </div>
-              <div class="stat">
-                <strong>Para todos</strong>
-                <span>Kids, Adulto e No-Gi</span>
-              </div>
-              <div class="stat">
-                <strong>Equipe forte</strong>
-                <span>respeito, parceria e evolução</span>
-              </div>
-            </div>
-          </div>
-
-          <aside class="card" aria-label="Cartão do professor e contatos">
-            <div class="inner">
-              <div class="badge">🔥 Comece essa semana • Aula experimental</div>
-
-              <div class="coach">
-                <div class="avatar" aria-hidden="true">IS</div>
-                <div>
-                  <strong id="coachName"></strong>
-                  <small>Professor • Resilience BJJ</small>
-                </div>
-              </div>
-
-              <div class="mini-actions">
-                <a class="btn primary" id="waCard" href="#" target="_blank" rel="noreferrer">Chamar no WhatsApp</a>
-                <a class="btn" id="igCoach" href="#" target="_blank" rel="noreferrer">Instagram do Professor</a>
-              </div>
-
-              <div class="divider"></div>
-
-              <div style="display:grid; gap:10px;">
-                <div class="pill" style="justify-content:space-between;">
-                  <span style="display:flex; gap:10px; align-items:center;">
-                    <span class="dot"></span>
-                    <span><strong>Endereço:</strong> <span id="addressText" style="color:var(--muted); font-weight:700"></span></span>
-                  </span>
-                </div>
-                <a class="btn ghost" id="mapsCard" href="#" target="_blank" rel="noreferrer">Abrir no Maps</a>
-
-                <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.5;">
-                  Diga no WhatsApp: <strong>“Quero treinar na Resilience. Qual o melhor horário pra mim?”</strong>
-                </p>
-              </div>
-            </div>
-          </aside>
-        </div>
-      </section>
-
-      <section id="beneficios">
-        <div class="section-title">
-          <div>
-            <h2>Por que treinar na Resilience?</h2>
-            <p>Um treino que encaixa no seu nível, te desafia na medida certa e te faz evoluir com consistência.</p>
-          </div>
+        <div class="heroActions">
+          <a class="btn primary" id="waHero" href="#" target="_blank" rel="noreferrer">Agendar aula gratuita (WhatsApp)</a>
+          <a class="btn" href="#horarios">Ver horários</a>
+          <a class="btn ghost" id="mapsHero" href="#" target="_blank" rel="noreferrer">Como chegar</a>
         </div>
 
-        <div class="cards3">
-          <div class="feature">
+        <div class="cards" style="margin-top:10px">
+          <div class="tile">
             <div class="icon">🥋</div>
             <h3>Aprendizado estruturado</h3>
-            <p>Didática + repetição inteligente. Você entende, pratica e aplica — sem ficar perdido.</p>
+            <p>Você entende o jogo e evolui com consistência — técnica, detalhes e aplicação.</p>
           </div>
-          <div class="feature">
+          <div class="tile">
             <div class="icon">⚡</div>
             <h3>Condicionamento e confiança</h3>
-            <p>Melhore cardio, força e resistência, além de ganhar postura e autoconfiança.</p>
+            <p>Melhore cardio, força e postura. Jiu-Jitsu muda corpo e mente.</p>
           </div>
-          <div class="feature">
+          <div class="tile">
             <div class="icon">🤝</div>
-            <h3>Equipe que soma</h3>
-            <p>Ambiente respeitoso, parceria e disciplina. Aqui você evolui com o time, não sozinho.</p>
-          </div>
-        </div>
-      </section>
-
-      <section id="como-funciona">
-        <div class="section-title">
-          <div>
-            <h2>Como funciona</h2>
-            <p>Você pode começar do zero. A gente te guia passo a passo.</p>
+            <h3>Ambiente que soma</h3>
+            <p>Respeito, parceria e disciplina. Aqui o time cresce junto.</p>
           </div>
         </div>
 
-        <div class="split">
-          <div class="feature" style="padding:18px;">
-            <h3 style="margin:0 0 10px;">O que você vai encontrar</h3>
-            <ul class="list">
-              <li class="li">
-                <div class="check">✓</div>
-                <div>
-                  <strong>Kids (crianças)</strong>
-                  <span>Disciplina, coordenação, respeito e confiança — do jeito certo.</span>
-                </div>
-              </li>
-              <li class="li">
-                <div class="check">✓</div>
-                <div>
-                  <strong>Adulto (técnica + rola)</strong>
-                  <span>Parte técnica guiada e sparring no nível certo pra evoluir.</span>
-                </div>
-              </li>
-              <li class="li">
-                <div class="check">✓</div>
-                <div>
-                  <strong>No-Gi (sem kimono)</strong>
-                  <span>Velocidade, pressão e adaptação — ótimo pra completar o jogo.</span>
-                </div>
-              </li>
-            </ul>
-          </div>
+        <!-- Coach card (mobile-friendly) -->
+        <div class="card" style="margin-top:12px">
+          <div class="pad">
+            <span class="kicker">🔥 Aula experimental gratuita • Comece essa semana</span>
 
-          <div class="feature" style="padding:18px;">
-            <h3 style="margin:0 0 10px;">Primeira aula (simples)</h3>
-            <ul class="list">
-              <li class="li">
-                <div class="check">1</div>
-                <div>
-                  <strong>Escolha um horário</strong>
-                  <span>Veja abaixo e clique para já mandar no WhatsApp.</span>
-                </div>
-              </li>
-              <li class="li">
-                <div class="check">2</div>
-                <div>
-                  <strong>Chegue 10 min antes</strong>
-                  <span>Pra conhecer o espaço e alinhar seu nível/objetivo.</span>
-                </div>
-              </li>
-              <li class="li">
-                <div class="check">3</div>
-                <div>
-                  <strong>Treine sem pressão</strong>
-                  <span>Você começa no seu ritmo — técnica, base e segurança.</span>
-                </div>
-              </li>
-            </ul>
+            <div class="miniLine"></div>
 
-            <div class="divider"></div>
+            <div class="row">
+              <div class="avatar" aria-hidden="true">IS</div>
+              <div style="min-width:0">
+                <div style="font-weight:950" id="coachName"></div>
+                <div class="muted" style="font-size:13px; margin-top:3px;">
+                  Professor • <span id="phonePretty"></span>
+                </div>
+              </div>
+            </div>
 
-            <p style="margin:0; color:var(--muted); line-height:1.6;">
-              <strong style="color:var(--text)">Observação:</strong> se você ainda não tem kimono, combine no WhatsApp como será sua primeira aula.
-            </p>
-          </div>
-        </div>
-      </section>
+            <div class="heroActions" style="margin-top:12px">
+              <a class="btn primary" id="waCoach" href="#" target="_blank" rel="noreferrer">Chamar no WhatsApp</a>
+              <a class="btn" id="igCoach" href="#" target="_blank" rel="noreferrer">Instagram do Professor</a>
+            </div>
 
-      <!-- NOVO: HORÁRIOS -->
-      <section id="horarios">
-        <div class="section-title">
-          <div>
-            <h2>Horários de treino</h2>
-            <p>Escolha um horário e clique em <strong>“Quero este horário”</strong> para mandar mensagem pronta no WhatsApp.</p>
-            <div class="legend">
-              <span class="tag kids">Kids</span>
-              <span class="tag adulto">Adulto</span>
-              <span class="tag nogi">No-Gi (sem kimono)</span>
+            <div class="miniLine"></div>
+
+            <div class="muted" style="line-height:1.6; font-size:13px;">
+              <b style="color:var(--text)">Endereço:</b> <span id="addressLine"></span>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="schedule" id="scheduleGrid"></div>
+      <!-- BENEFÍCIOS -->
+      <section id="beneficios">
+        <h2 class="h2">Por que treinar na Resilience?</h2>
+        <p class="sub">Treino certo no nível certo — pra você continuar e sentir resultado.</p>
+
+        <div class="cards" style="margin-top:12px">
+          <div class="tile">
+            <div class="icon">🎯</div>
+            <h3>Evolução visível</h3>
+            <p>Você sai da aula sabendo o que treinar e como melhorar no próximo rola.</p>
+          </div>
+          <div class="tile">
+            <div class="icon">🧠</div>
+            <h3>Técnica + estratégia</h3>
+            <p>Não é só “força”: é posicionamento, timing e decisões inteligentes.</p>
+          </div>
+          <div class="tile">
+            <div class="icon">🛡️</div>
+            <h3>Segurança no treino</h3>
+            <p>Base bem feita e progressão. Perfeito pra quem está começando.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- HORÁRIOS -->
+      <section id="horarios">
+        <h2 class="h2">Horários</h2>
+        <p class="sub">Toque no dia para abrir. Depois clique em <b>“Quero este horário”</b> e mande a mensagem pronta.</p>
+
+        <div class="legend">
+          <span class="tag">Kids</span>
+          <span class="tag" style="border-color:rgba(255,27,45,.35); background:rgba(255,27,45,.10); color:#ffd5d9">Adulto</span>
+          <span class="tag">No-Gi (sem kimono)</span>
+        </div>
+
+        <div class="schedule" id="scheduleGrid" style="margin-top:12px"></div>
 
         <p class="muted" style="margin:12px 0 0; font-size:13px; line-height:1.6;">
-          * Horários sujeitos a ajustes em feriados/eventos. Confirme pelo WhatsApp.
+          * Horários podem variar em feriados/eventos. Confirme pelo WhatsApp.
         </p>
       </section>
 
-      <section id="depoimentos">
-        <div class="section-title">
-          <div>
-            <h2>O que a galera sente no treino</h2>
-            <p>Exemplos (depois você pode trocar por depoimentos reais).</p>
+      <!-- COMO FUNCIONA -->
+      <section id="como">
+        <h2 class="h2">Como é a primeira aula</h2>
+        <p class="sub">Sem pressão. Você começa no seu ritmo e já sai entendendo o jogo.</p>
+
+        <div class="cards" style="margin-top:12px">
+          <div class="tile">
+            <div class="icon">1️⃣</div>
+            <h3>Escolha um horário</h3>
+            <p>Abra os horários e clique em “Quero este horário” para agendar.</p>
+          </div>
+          <div class="tile">
+            <div class="icon">2️⃣</div>
+            <h3>Chegue 10 min antes</h3>
+            <p>Pra conhecer o espaço e alinhar seu objetivo e nível.</p>
+          </div>
+          <div class="tile">
+            <div class="icon">3️⃣</div>
+            <h3>Treine e sinta</h3>
+            <p>Técnica guiada + rola no nível certo. Evolução desde a primeira semana.</p>
           </div>
         </div>
 
-        <div class="testimonials">
-          <div class="quote">
-            <p>“Cheguei sem saber nada e em poucas semanas já estava entendendo posições e evoluindo no rola.”</p>
-            <small>— Aluno iniciante</small>
-          </div>
-          <div class="quote">
-            <p>“Treino forte, mas com respeito. O time ajuda demais e isso faz você voltar todo dia.”</p>
-            <small>— Aluno intermediário</small>
-          </div>
-          <div class="quote">
-            <p>“Didática muito boa. A aula é organizada, você sai com sensação real de progresso.”</p>
-            <small>— Aluno avançado</small>
-          </div>
-        </div>
-      </section>
-
-      <section id="faq">
-        <div class="section-title">
-          <div>
-            <h2>Dúvidas rápidas</h2>
-            <p>As perguntas que mais aparecem no direct e no WhatsApp.</p>
-          </div>
-        </div>
-
-        <div class="faq">
-          <details>
-            <summary>Preciso ter condicionamento para começar?</summary>
-            <p>Não. Você começa no seu ritmo e vai evoluindo com consistência. O treino se adapta ao seu nível.</p>
-          </details>
-          <details>
-            <summary>Tem aula para iniciantes?</summary>
-            <p>Sim. Você aprende base, posições e segurança. O objetivo é você entender o jogo e progredir sem se machucar.</p>
-          </details>
-          <details>
-            <summary>Posso fazer uma aula experimental?</summary>
-            <p>Sim. Chame no WhatsApp e agende (ou clique em um horário ali em cima para enviar a mensagem pronta).</p>
-          </details>
-          <details>
-            <summary>Kids é a partir de qual idade?</summary>
-            <p>Confirme pelo WhatsApp e a gente orienta a melhor turma para a faixa etária.</p>
-          </details>
-        </div>
-      </section>
-
-      <section id="local">
-        <div class="section-title">
-          <div>
-            <h2>Localização</h2>
-            <p id="addressLine"></p>
-          </div>
-        </div>
-
-        <div class="split">
-          <div class="feature" style="padding:18px;">
-            <h3 style="margin:0 0 10px;">Como chegar</h3>
-            <p style="margin:0 0 14px; color:var(--muted); line-height:1.6;">
-              Clique no botão abaixo para abrir a rota no Google Maps.
-            </p>
-            <a class="btn primary" id="mapsBtn" href="#" target="_blank" rel="noreferrer">Abrir rota no Maps</a>
-            <div class="divider"></div>
-            <p style="margin:0; color:var(--muted); line-height:1.6;">
-              Preferir chamar direto? <strong style="color:var(--text)">WhatsApp:</strong> <span id="phonePretty"></span>
-            </p>
-          </div>
-
-          <div class="card" aria-label="Mapa incorporado">
-            <div class="inner" style="padding:0;">
-              <div style="padding:14px 16px; border-bottom:1px solid rgba(255,255,255,.08); display:flex; justify-content:space-between; align-items:center; gap:12px;">
-                <strong>Mapa</strong>
-                <a class="btn" id="mapsOpen2" href="#" target="_blank" rel="noreferrer" style="padding:10px 12px;">Abrir</a>
-              </div>
-              <iframe
-                id="mapsEmbed"
-                title="Resilience BJJ no Google Maps"
-                style="width:100%; height:340px; border:0; display:block;"
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"
-                src="">
-              </iframe>
+        <div class="card" style="margin-top:12px">
+          <div class="pad">
+            <div style="font-weight:950; margin-bottom:6px;">Kimono é obrigatório?</div>
+            <div class="muted" style="line-height:1.6;">
+              Se você ainda não tem kimono, chama no WhatsApp e a gente orienta como será sua aula experimental gratuita.
             </div>
           </div>
         </div>
       </section>
 
-      <section>
-        <div class="cta">
-          <div>
-            <h2>Bora começar?</h2>
-            <p>
-              Manda uma mensagem agora e agende sua aula experimental.
-              <br/>Treino bom é aquele que você faz — e a Resilience te coloca no caminho.
-            </p>
+      <!-- FAQ -->
+      <section id="faq">
+        <h2 class="h2">Dúvidas rápidas</h2>
+        <p class="sub">As perguntas mais comuns no direct/WhatsApp.</p>
+
+        <div class="faq" style="margin-top:12px">
+          <details class="faqItem">
+            <summary class="faqSum">A aula experimental é gratuita?</summary>
+            <p>Sim — a aula experimental é gratuita. É só chamar no WhatsApp e escolher um horário.</p>
+          </details>
+          <details class="faqItem">
+            <summary class="faqSum">Preciso ter condicionamento para começar?</summary>
+            <p>Não. Você começa no seu ritmo e vai evoluindo com consistência. O treino se adapta ao seu nível.</p>
+          </details>
+          <details class="faqItem">
+            <summary class="faqSum">Tem turma para crianças (Kids)?</summary>
+            <p>Sim. Kids com foco em disciplina, coordenação, respeito e confiança.</p>
+          </details>
+          <details class="faqItem">
+            <summary class="faqSum">O que é No-Gi?</summary>
+            <p>No-Gi é Jiu-Jitsu sem kimono. Trabalha velocidade, pegadas diferentes e adaptação.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- LOCAL -->
+      <section id="local">
+        <h2 class="h2">Localização</h2>
+        <p class="sub" id="addressText"></p>
+
+        <div class="card mapCard" style="margin-top:12px">
+          <div class="pad" style="display:flex; justify-content:space-between; align-items:center; gap:10px;">
+            <div>
+              <div style="font-weight:950">Resilience BJJ</div>
+              <div class="muted" style="font-size:13px; margin-top:2px;">Toque em “Abrir no Maps” para rotas</div>
+            </div>
+            <a class="btn small ghost" id="mapsOpen" href="#" target="_blank" rel="noreferrer">Abrir no Maps</a>
           </div>
-          <div style="display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="btn primary" id="waBottom" href="#" target="_blank" rel="noreferrer">Agendar no WhatsApp</a>
-            <a class="btn" id="igGym2" href="#" target="_blank" rel="noreferrer">Ver Instagram</a>
-          </div>
+          <iframe
+            id="mapsEmbed"
+            title="Resilience BJJ no Google Maps"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="">
+          </iframe>
+        </div>
+
+        <div class="heroActions" style="margin-top:12px">
+          <a class="btn primary" id="waLocal" href="#" target="_blank" rel="noreferrer">Agendar aula grátis</a>
+          <a class="btn" id="igGym" href="#" target="_blank" rel="noreferrer">Ver Instagram</a>
         </div>
       </section>
 
       <footer>
-        <div class="foot">
+        <div class="footRow">
           <div>
-            <strong style="color:var(--text)">Resilience BJJ</strong> • <span id="cityLine"></span><br/>
-            <span style="color:var(--muted)">© <span id="year"></span> • Todos os direitos reservados.</span>
+            <b style="color:var(--text)">Resilience BJJ</b> • <span id="cityLine"></span><br/>
+            <span>© <span id="year"></span> • Todos os direitos reservados.</span>
           </div>
           <div class="links">
-            <a id="igGym3" href="#" target="_blank" rel="noreferrer">Instagram</a>
+            <a id="igGym2" href="#" target="_blank" rel="noreferrer">Instagram</a>
             <a id="igCoach2" href="#" target="_blank" rel="noreferrer">Professor</a>
             <a id="waFooter" href="#" target="_blank" rel="noreferrer">WhatsApp</a>
-            <a id="mapsFooter" href="#" target="_blank" rel="noreferrer">Maps</a>
           </div>
         </div>
       </footer>
     </div>
   </main>
+
+  <!-- Floating WhatsApp button -->
+  <div class="fab" aria-label="WhatsApp flutuante">
+    <a id="waFab" href="#" target="_blank" rel="noreferrer" title="Agendar no WhatsApp">WA</a>
+  </div>
+
+  <!-- Bottom sticky bar -->
+  <div class="bottomBar" role="navigation" aria-label="Ações rápidas">
+    <div class="wrap">
+      <a class="primary" id="waBottom" href="#" target="_blank" rel="noreferrer">Aula grátis • WhatsApp</a>
+      <a href="#horarios">Horários</a>
+    </div>
+  </div>
 
   <script>
     // Helpers
@@ -757,7 +660,7 @@
     const igLink = (handle) => `https://instagram.com/${handle.replace('@','')}`;
     const mapsLink = (query) => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 
-    const defaultMsg = `Olá! Quero agendar uma aula experimental na Resilience BJJ. Meu nível é: (iniciante/intermediário/avançado).`;
+    const defaultMsg = `Olá! Quero agendar uma aula experimental gratuita na Resilience BJJ.\nMeu nível é: (iniciante/intermediário/avançado).`;
     const wa = waLink(RESILIENCE.phoneIntl, defaultMsg);
     const igGym = igLink(RESILIENCE.instagramGym);
     const igCoach = igLink(RESILIENCE.instagramCoach);
@@ -765,68 +668,69 @@
 
     // Bind basic info
     document.getElementById("coachName").textContent = RESILIENCE.coachName;
-    document.getElementById("addressText").textContent = RESILIENCE.address;
-    document.getElementById("addressLine").textContent = RESILIENCE.address;
-    document.getElementById("cityLine").textContent = RESILIENCE.city;
     document.getElementById("phonePretty").textContent = RESILIENCE.phonePretty;
+    document.getElementById("addressLine").textContent = RESILIENCE.address;
+    document.getElementById("addressText").textContent = RESILIENCE.address;
+    document.getElementById("cityLine").textContent = RESILIENCE.city;
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // WhatsApp buttons
-    ["waTop","waHero","waCard","waBottom","waFooter"].forEach(id=>{
+    // Buttons
+    ["waTop","waHero","waCoach","waLocal","waFooter","waFab","waBottom"].forEach(id=>{
       const el = document.getElementById(id);
       if(el) el.href = wa;
     });
 
-    // Instagram buttons
-    ["igGymTop","igGym2","igGym3"].forEach(id=>{
+    ["igGymTop","igGym","igGym2"].forEach(id=>{
       const el = document.getElementById(id);
       if(el) el.href = igGym;
     });
+
     ["igCoach","igCoach2"].forEach(id=>{
       const el = document.getElementById(id);
       if(el) el.href = igCoach;
     });
 
-    // Maps
-    ["mapsHero","mapsCard","mapsBtn","mapsOpen2","mapsFooter"].forEach(id=>{
+    ["mapsHero","mapsOpen"].forEach(id=>{
       const el = document.getElementById(id);
       if(el) el.href = maps;
     });
 
-    // Embed do Maps
+    // Maps embed
     document.getElementById("mapsEmbed").src =
       "https://www.google.com/maps?q=" + encodeURIComponent(RESILIENCE.mapsQuery) + "&output=embed";
 
-    // Render schedule
+    // Schedule render (accordion)
     const scheduleGrid = document.getElementById("scheduleGrid");
-
-    const typeLabel = (t) => {
-      const norm = t.toLowerCase();
-      if(norm.includes("kids")) return `<span class="type"><b>Kids</b></span>`;
-      if(norm.includes("no-gi") || norm.includes("nogi")) return `<span class="type"><b>No-Gi</b> (Adulto)</span>`;
-      return `<span class="type"><b>Adulto</b></span>`;
-    };
 
     const dayTag = (slots) => {
       const hasKids = slots.some(s => s.type.toLowerCase().includes("kids"));
       const hasNogi = slots.some(s => s.type.toLowerCase().includes("no-gi") || s.type.toLowerCase().includes("nogi"));
-      if(hasKids && hasNogi) return "Kids • No-Gi";
-      if(hasKids) return "Kids • Adulto";
-      if(hasNogi) return "No-Gi";
+      if (hasKids && hasNogi) return "Kids • No-Gi";
+      if (hasKids) return "Kids • Adulto";
+      if (hasNogi) return "No-Gi";
       return "Adulto";
     };
 
+    const typeLabel = (t) => {
+      const norm = t.toLowerCase();
+      if (norm.includes("kids")) return `<span class="type"><b>Kids</b></span>`;
+      if (norm.includes("no-gi") || norm.includes("nogi")) return `<span class="type"><b>No-Gi</b> (Adulto)</span>`;
+      return `<span class="type"><b>Adulto</b></span>`;
+    };
+
     const makeSlotMessage = (day, time, type) => {
-      return `Olá! Quero agendar uma aula experimental na Resilience BJJ.\n` +
+      return `Olá! Quero agendar uma aula experimental gratuita na Resilience BJJ.\n` +
              `Tenho interesse no horário: ${day} ${time} (${type}).\n` +
              `Meu nível é: (iniciante/intermediário/avançado).`;
     };
 
-    scheduleGrid.innerHTML = RESILIENCE.schedule.map(d => {
+    // Open first day by default for quicker conversion
+    scheduleGrid.innerHTML = RESILIENCE.schedule.map((d, idx) => {
+      const openAttr = idx === 0 ? "open" : "";
       const tag = dayTag(d.slots);
+
       const slotsHtml = d.slots.map(s => {
-        const msg = makeSlotMessage(d.day, s.time, s.type);
-        const href = waLink(RESILIENCE.phoneIntl, msg);
+        const href = waLink(RESILIENCE.phoneIntl, makeSlotMessage(d.day, s.time, s.type));
         return `
           <div class="slot">
             <div class="left">
@@ -839,19 +743,20 @@
       }).join("");
 
       return `
-        <div class="day">
-          <div class="head">
-            <strong>${d.day}</strong>
+        <details class="day" ${openAttr}>
+          <summary class="daySum">
+            <span>${d.day}</span>
             <span class="tag">${tag}</span>
-          </div>
+          </summary>
           <div class="slots">
             ${slotsHtml}
           </div>
-        </div>
+        </details>
       `;
     }).join("");
   </script>
 
+  <!-- SEO Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
