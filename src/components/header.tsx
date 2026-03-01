@@ -13,7 +13,7 @@ export default function Header() {
             aria-label="Resilience BJJ"
           >
             <img
-              src="/logo.png"
+              src="/logo.jpg"
               alt="Logo Resilience BJJ"
               className="size-10 flex-none rounded-[12px] border border-white/[0.12] bg-black object-cover"
             />
