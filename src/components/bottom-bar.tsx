@@ -1,4 +1,4 @@
-import { WA_DEFAULT } from "../config/resilience";
+import { WA_DEFAULT } from '../config/resilience'
 
 export default function BottomBar() {
   return (
@@ -24,5 +24,5 @@ export default function BottomBar() {
         </a>
       </div>
     </div>
-  );
+  )
 }

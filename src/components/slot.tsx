@@ -1,5 +1,5 @@
-import type { Slot as SlotType } from "../config/resilience";
-import { makeSlotMessage, RESILIENCE, waLink } from "../config/resilience";
+import type { Slot as SlotType } from '../config/resilience'
+import { makeSlotMessage, RESILIENCE, waLink } from '../config/resilience'
 
 interface SlotProps {
   day: string;
@@ -7,33 +7,33 @@ interface SlotProps {
 }
 
 function TypeLabel({ type }: { type: string }) {
-  const norm = type.toLowerCase();
-  if (norm.includes("kids")) {
+  const norm = type.toLowerCase()
+  if (norm.includes('kids')) {
     return (
       <span className="text-xs font-[850] text-muted">
         <b className="text-pink">Kids</b>
       </span>
-    );
+    )
   }
-  if (norm.includes("no-gi") || norm.includes("nogi")) {
+  if (norm.includes('no-gi') || norm.includes('nogi')) {
     return (
       <span className="text-xs font-[850] text-muted">
         <b className="text-pink">No-Gi</b> (Adulto)
       </span>
-    );
+    )
   }
   return (
     <span className="text-xs font-[850] text-muted">
       <b className="text-pink">Adulto</b>
     </span>
-  );
+  )
 }
 
 export default function Slot({ day, slot }: SlotProps) {
   const href = waLink(
     RESILIENCE.phoneIntl,
     makeSlotMessage(day, slot.time, slot.type),
-  );
+  )
 
   return (
     <div className="flex items-center justify-between gap-2.5 rounded-r16 border border-white/10 bg-black/[0.18] p-3">
@@ -50,5 +50,5 @@ export default function Slot({ day, slot }: SlotProps) {
         Quero este horário
       </a>
     </div>
-  );
+  )
 }

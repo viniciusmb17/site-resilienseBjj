@@ -1,5 +1,5 @@
-import Tile from "./tile";
-import TileGrid from "./tile-grid";
+import Tile from './tile'
+import TileGrid from './tile-grid'
 
 export default function Benefits() {
   return (
@@ -29,5 +29,5 @@ export default function Benefits() {
         />
       </TileGrid>
     </section>
-  );
+  )
 }

@@ -1,27 +1,27 @@
-import FaqItem from "./faq-item";
+import FaqItem from './faq-item'
 
 const FAQ_DATA = [
   {
-    question: "A aula experimental é gratuita?",
+    question: 'A aula experimental é gratuita?',
     answer:
-      "Sim. A aula experimental é gratuita. É só chamar no WhatsApp e escolher um horário.",
+      'Sim. A aula experimental é gratuita. É só chamar no WhatsApp e escolher um horário.',
   },
   {
-    question: "Preciso ter condicionamento para começar?",
+    question: 'Preciso ter condicionamento para começar?',
     answer:
-      "Não. Você começa no seu ritmo e vai evoluindo com consistência. O treino se adapta ao seu nível.",
+      'Não. Você começa no seu ritmo e vai evoluindo com consistência. O treino se adapta ao seu nível.',
   },
   {
-    question: "Tem turma para crianças (Kids)?",
+    question: 'Tem turma para crianças (Kids)?',
     answer:
-      "Sim. Kids com foco em disciplina, coordenação, respeito e confiança.",
+      'Sim. Kids com foco em disciplina, coordenação, respeito e confiança.',
   },
   {
-    question: "O que é No-Gi?",
+    question: 'O que é No-Gi?',
     answer:
-      "No-Gi é Jiu Jitsu sem kimono. Trabalha velocidade, pegadas diferentes e adaptação.",
+      'No-Gi é Jiu Jitsu sem kimono. Trabalha velocidade, pegadas diferentes e adaptação.',
   },
-];
+]
 
 export default function Faq() {
   return (
@@ -43,5 +43,5 @@ export default function Faq() {
         ))}
       </div>
     </section>
-  );
+  )
 }

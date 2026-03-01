@@ -1,10 +1,10 @@
 import {
-    IG_GYM,
-    MAPS_EMBED,
-    MAPS_URL,
-    RESILIENCE,
-    WA_DEFAULT,
-} from "../config/resilience";
+  IG_GYM,
+  MAPS_EMBED,
+  MAPS_URL,
+  RESILIENCE,
+  WA_DEFAULT,
+} from '../config/resilience'
 
 export default function Location() {
   return (
@@ -61,5 +61,5 @@ export default function Location() {
         </a>
       </div>
     </section>
-  );
+  )
 }

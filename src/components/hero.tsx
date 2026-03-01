@@ -1,16 +1,16 @@
-import { MAPS_URL, WA_DEFAULT } from "../config/resilience";
-import CoachCard from "./coach-card";
-import Tile from "./tile";
-import TileGrid from "./tile-grid";
+import { MAPS_URL, WA_DEFAULT } from '../config/resilience'
+import CoachCard from './coach-card'
+import Tile from './tile'
+import TileGrid from './tile-grid'
 
 export default function Hero() {
   return (
     <section className="grid gap-3.5 pb-[52px] pt-[22px]" id="top">
       {/* Pill */}
       <span className="inline-flex items-center gap-2.5 self-start rounded-full border border-line bg-white/[0.03] px-3.5 py-2.5 text-[13px] font-[800] text-muted backdrop-blur-[10px]">
-        <span className="h-2 w-2 rounded-full bg-red shadow-[0_0_0_4px_rgba(255,27,45,0.15)]" />
+        <span className="size-2 rounded-full bg-red shadow-[0_0_0_4px_rgba(255,27,45,0.15)]" />
         <span>
-          Aula experimental{" "}
+          Aula experimental{' '}
           <b className="text-pink">gratuita</b> • Vagas limitadas
         </span>
       </span>
@@ -21,7 +21,7 @@ export default function Hero() {
 
       <p className="m-0 max-w-[70ch] text-[15.5px] leading-[1.65] text-muted">
         Quer sair do "vou começar" e finalmente entrar no tatame? A Resilience é
-        pra quem busca <b className="text-text">evolução</b>,{" "}
+        pra quem busca <b className="text-text">evolução</b>,{' '}
         <b className="text-text">disciplina</b> e treino de verdade - do
         iniciante ao avançado.
       </p>
@@ -71,5 +71,5 @@ export default function Hero() {
       {/* Coach card */}
       <CoachCard />
     </section>
-  );
+  )
 }

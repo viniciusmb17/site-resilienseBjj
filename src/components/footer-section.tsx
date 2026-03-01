@@ -1,16 +1,16 @@
 import {
-    IG_COACH,
-    IG_GYM,
-    RESILIENCE,
-    WA_DEFAULT,
-} from "../config/resilience";
+  IG_COACH,
+  IG_GYM,
+  RESILIENCE,
+  WA_DEFAULT,
+} from '../config/resilience'
 
 export default function FooterSection() {
   return (
     <footer className="mt-4 border-t border-white/[0.06] pb-2 pt-[18px] text-[13px] text-muted">
       <div className="flex flex-wrap items-center justify-between gap-2.5">
         <div>
-          <b className="text-text">Resilience BJJ</b> •{" "}
+          <b className="text-text">Resilience BJJ</b> •{' '}
           {RESILIENCE.city}
           <br />
           <span>© {new Date().getFullYear()} • Todos os direitos reservados.</span>
@@ -44,5 +44,5 @@ export default function FooterSection() {
         </div>
       </div>
     </footer>
-  );
+  )
 }

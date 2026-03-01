@@ -1,9 +1,9 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useState } from "react";
-import type { ScheduleDay as ScheduleDayType } from "../config/resilience";
-import { dayTag } from "../config/resilience";
-import { MOTION } from "../lib/motion-tokens";
-import Slot from "./slot";
+import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
+import type { ScheduleDay as ScheduleDayType } from '../config/resilience'
+import { dayTag } from '../config/resilience'
+import { MOTION } from '../lib/motion-tokens'
+import Slot from './slot'
 
 interface ScheduleDayProps {
   data: ScheduleDayType;
@@ -14,10 +14,10 @@ export default function ScheduleDay({
   data,
   defaultOpen = false,
 }: ScheduleDayProps) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
-  const tag = dayTag(data.slots);
-  const dayId = `schedule-day-${data.day.replace(/\s+/g, "-").toLowerCase()}`;
-  const slotsId = `schedule-slots-${data.day.replace(/\s+/g, "-").toLowerCase()}`;
+  const [isOpen, setIsOpen] = useState(defaultOpen)
+  const tag = dayTag(data.slots)
+  const dayId = `schedule-day-${data.day.replace(/\s+/g, '-').toLowerCase()}`
+  const slotsId = `schedule-slots-${data.day.replace(/\s+/g, '-').toLowerCase()}`
 
   return (
     <div
@@ -28,7 +28,7 @@ export default function ScheduleDay({
       <button
         id={dayId}
         onClick={() => setIsOpen(!isOpen)}
-        className="w-full flex cursor-pointer items-center justify-between gap-3 p-3.5 font-[950] text-left hover:bg-white/[0.05] transition-colors"
+        className="flex w-full cursor-pointer items-center justify-between gap-3 p-3.5 text-left font-[950] transition-colors hover:bg-white/[0.05]"
         aria-expanded={isOpen}
         aria-controls={slotsId}
         type="button"
@@ -39,14 +39,18 @@ export default function ScheduleDay({
             {tag}
           </span>
           <motion.svg
-            className="h-5 w-5 text-muted flex-shrink-0"
+            className="size-5 shrink-0 text-muted"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
-            animate={{ rotate: isOpen ? 180 : 0 }}
+            animate={{
+              rotate: isOpen
+                ? 180
+                : 0,
+            }}
             transition={{
               duration: MOTION.duration.normal / 1000,
-              ease: "easeOut",
+              ease: 'easeOut',
             }}
           >
             <path
@@ -66,10 +70,10 @@ export default function ScheduleDay({
             initial={{ opacity: 0, height: 0 }}
             animate={{
               opacity: 1,
-              height: "auto",
+              height: 'auto',
               transition: {
                 duration: MOTION.duration.normal / 1000,
-                ease: "easeOut",
+                ease: 'easeOut',
               },
             }}
             exit={{
@@ -77,12 +81,12 @@ export default function ScheduleDay({
               height: 0,
               transition: {
                 duration: MOTION.duration.normal / 1000,
-                ease: "easeIn",
+                ease: 'easeIn',
               },
             }}
             className="overflow-hidden border-t border-white/[0.05]"
           >
-            <div id={slotsId} className="grid gap-2.5 px-3.5 py-3.5">
+            <div id={slotsId} className="grid gap-2.5 p-3.5">
               {data.slots.map((slot, idx) => (
                 <motion.div
                   key={`${data.day}-${slot.time}`}
@@ -91,7 +95,7 @@ export default function ScheduleDay({
                   transition={{
                     delay: (idx * MOTION.duration.fast) / 1000,
                     duration: MOTION.duration.normal / 1000,
-                    ease: "easeOut",
+                    ease: 'easeOut',
                   }}
                 >
                   <Slot day={data.day} slot={slot} />
@@ -102,5 +106,5 @@ export default function ScheduleDay({
         )}
       </AnimatePresence>
     </div>
-  );
+  )
 }

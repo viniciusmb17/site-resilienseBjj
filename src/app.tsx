@@ -1,12 +1,12 @@
-import Benefits from "./components/benefits";
-import BottomBar from "./components/bottom-bar";
-import Faq from "./components/faq";
-import FooterSection from "./components/footer-section";
-import Header from "./components/header";
-import Hero from "./components/hero";
-import HowItWorks from "./components/how-it-works";
-import Location from "./components/location";
-import Schedule from "./components/schedule";
+import Benefits from './components/benefits'
+import BottomBar from './components/bottom-bar'
+import Faq from './components/faq'
+import FooterSection from './components/footer-section'
+import Header from './components/header'
+import Hero from './components/hero'
+import HowItWorks from './components/how-it-works'
+import Location from './components/location'
+import Schedule from './components/schedule'
 
 export default function App() {
   return (
@@ -30,5 +30,5 @@ export default function App() {
 
       <BottomBar />
     </>
-  );
+  )
 }

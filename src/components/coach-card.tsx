@@ -1,8 +1,8 @@
 import {
-    IG_COACH,
-    RESILIENCE,
-    WA_DEFAULT,
-} from "../config/resilience";
+  IG_COACH,
+  RESILIENCE,
+  WA_DEFAULT,
+} from '../config/resilience'
 
 export default function CoachCard() {
   return (
@@ -18,7 +18,7 @@ export default function CoachCard() {
         {/* Coach row */}
         <div className="flex items-center gap-3">
           <div
-            className="avatar-gradient flex h-[50px] w-[50px] items-center justify-center rounded-r16 border border-white/[0.12] font-[950]"
+            className="avatar-gradient flex size-[50px] items-center justify-center rounded-r16 border border-white/[0.12] font-[950]"
             aria-hidden="true"
           >
             IS
@@ -59,5 +59,5 @@ export default function CoachCard() {
         </div>
       </div>
     </div>
-  );
+  )
 }

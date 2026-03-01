@@ -1,5 +1,5 @@
-import Tile from "./tile";
-import TileGrid from "./tile-grid";
+import Tile from './tile'
+import TileGrid from './tile-grid'
 
 export default function HowItWorks() {
   return (
@@ -40,5 +40,5 @@ export default function HowItWorks() {
         </div>
       </div>
     </section>
-  );
+  )
 }
