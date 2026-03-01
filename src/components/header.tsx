@@ -12,9 +12,9 @@ export default function Header() {
             aria-label="Resilience BJJ"
           >
             <img
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="Logo Resilience BJJ"
-              className="h-10 w-10 flex-none rounded-[12px] border border-white/[0.12] bg-[#111] object-cover"
+              className="h-10 w-10 flex-none rounded-[12px] border border-white/[0.12] bg-black object-cover"
             />
             <div>
               <div className="font-[950] leading-[1.1] tracking-[-0.02em]">
